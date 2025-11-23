@@ -3,10 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Plataforma RAEE Yopal</title>
+
+  <!-- Estilos personalizados -->
   <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    /* Estilo del mapa */
+    #mapaInicio {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-top: 2rem;
+    }
+
+    .map-title {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #2c5282;
+    }
+  </style>
+
 </head>
 
 <body>
+
   <header class="hero">
     <h1>Gestión Inteligente de RAEE en Yopal</h1>
     <p>Reduce, reutiliza y recicla tus residuos electrónicos a través de nuestra plataforma interactiva.</p>
@@ -36,8 +62,58 @@
     </div>
   </section>
 
+  <!-- TÍTULO DEL MAPA -->
+  <div class="map-title">Puntos de Acopio RAEE en Yopal</div>
+
+  <!-- MAPA -->
+  <div id="mapaInicio"></div>
+
   <footer class="pie">
     <p>Proyecto de Grado – Ingeniería de Sistemas – UNAD</p>
   </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Inicializar mapa centrado en Yopal
+    const mapa = L.map('mapaInicio').setView([5.33333, -72.4], 13);
+
+    // Capa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(mapa);
+
+    // Puntos de acopio reales
+    const puntos = [
+      {
+        nombre: "Punto Verde Alcaldía de Yopal",
+        lat: 5.341138110427619,
+        lng: -72.40021222452178,
+        desc: "Electrodomésticos, computadores, pilas"
+      },
+      {
+        nombre: "Centro Comercial Gran Plaza Alcaraván",
+        lat: 5.334635781026147, 
+        lng: -72.38517874566301,
+        desc: "Computadores, celulares"
+      },
+      {
+        nombre: "Universidad UNAD – Yopal",
+        lat: 5.341272616834742,
+        lng: -72.4018544020428,
+        desc: "RAEE institucional, equipos de laboratorio"
+      },
+      
+    ];
+
+    // Agregar marcadores al mapa
+    puntos.forEach(p => {
+      L.marker([p.lat, p.lng])
+        .addTo(mapa)
+        .bindPopup(`<b>${p.nombre}</b><br>${p.desc}`);
+    });
+  </script>
+
 </body>
 </html>
