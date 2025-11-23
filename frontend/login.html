@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iniciar sesión - Plataforma RAEE Yopal</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Plataforma RAEE Yopal</h1>
+    <p class="subtitulo">Accede para gestionar residuos electrónicos</p>
+  </header>
+
+  <main class="contenedor-form">
+    <section class="card-form">
+      <h2>Iniciar sesión</h2>
+      <p class="texto-ayuda">
+        Ingresa con tu correo y contraseña para acceder al panel.
+      </p>
+
+      <form id="formLogin">
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="tucorreo@raee.com"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn-primario btn-anchura">
+          Entrar
+        </button>
+
+        <p id="mensajeError" class="msg-error" hidden>
+          Credenciales incorrectas. Intenta de nuevo.
+        </p>
+      </form>
+
+      <!-- 🔹 Enlace para ir a registrarse -->
+      <div style="margin-top: 1rem;">
+        <a href="register.html" class="link-volver">
+          ¿No tienes cuenta? Regístrate aquí
+        </a>
+      </div>
+
+      <a href="index.html" class="link-volver">← Volver al inicio</a>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Proyecto de Grado – Ingeniería de Sistemas – UNAD</p>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

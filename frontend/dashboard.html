@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel de administración - Plataforma RAEE Yopal</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="encabezado encabezado-dashboard">
+    <div>
+      <h1>Panel de administración RAEE</h1>
+      <p class="subtitulo">
+        Visualiza estadísticas y gestiona puntos de acopio y reportes.
+      </p>
+    </div>
+    <div class="usuario-info">
+      <span id="nombreUsuario">Administrador</span>
+      <button id="btnSalir" class="btn-secundario">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenedor-dashboard">
+    <section class="grid-resumen">
+      <article class="card-resumen">
+        <h3>Total RAEE reportado</h3>
+        <p class="resumen-valor" id="totalRaee">0 kg</p>
+        <span class="resumen-etiqueta">Últimos 30 días</span>
+      </article>
+
+      <article class="card-resumen">
+        <h3>Puntos de acopio activos</h3>
+        <p class="resumen-valor" id="totalPuntos">0</p>
+        <span class="resumen-etiqueta">En Yopal</span>
+      </article>
+
+      <article class="card-resumen">
+        <h3>Usuarios registrados</h3>
+        <p class="resumen-valor" id="totalUsuarios">0</p>
+        <span class="resumen-etiqueta">Ciudadanos e instituciones</span>
+      </article>
+    </section>
+
+    <section class="panel-grafico">
+      <h2>RAEE por tipo</h2>
+      <canvas id="graficoRaee" height="120"></canvas>
+    </section>
+
+    <section class="panel-tabla">
+      <h2>Últimos reportes registrados</h2>
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Usuario</th>
+              <th>Punto de acopio</th>
+              <th>Tipo de residuo</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyReportes">
+            <!-- Filas cargadas dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <h3 id="totalReportes">0</h3>
+          <p>Reportes registrados</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="totalUsuarios">0</h3>
+        <p>Usuarios activos</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="totalPuntos">0</h3>
+        <p>Puntos de acopio</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>Proyecto de Grado – Ingeniería de Sistemas – UNAD</p>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
